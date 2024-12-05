@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estudo Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+    <ul>
+        {% for item in itens %}
+        <li>
+            {{item}}
+
+            <form method="POST">
+                <input type="hidden" name="remover_item" value="{{ item }}">
+                <button type="submit">Remover</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+        <label for="item">
+            Novo item
+        </label>
+        <input type="text" id="item" name="item" required>
+        <button type="submit">Adicionar</button>
+
+    </form>
+
+</body>
+
+</html>
